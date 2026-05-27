@@ -12,7 +12,6 @@ import {
   SidebarGroupContent,
   SidebarGroupLabel,
   SidebarMenu,
-  SidebarMenuButton,
   SidebarMenuItem,
   SidebarHeader,
 } from "@/components/ui/sidebar"
@@ -92,16 +91,15 @@ export function AppSidebar() {
                   const isActive = location.pathname === item.url
                   return (
                     <SidebarMenuItem key={item.title}>
-                      <SidebarMenuButton 
-                        asChild 
-                        isActive={isActive}
-                        className={`h-9 px-4 py-2 hover:bg-sidebar-accent hover:text-sidebar-foreground transition-all rounded-none border-l-2 ${isActive ? 'border-primary bg-primary/10 text-primary font-medium' : 'border-transparent text-sidebar-foreground/80'}`}
+                      <Link 
+                        to={item.url} 
+                        className={`flex w-full items-center h-9 px-4 py-2 hover:bg-sidebar-accent hover:text-sidebar-foreground transition-all rounded-none border-l-2 ${isActive ? 'border-primary bg-primary/10 text-primary font-medium' : 'border-transparent text-sidebar-foreground/80'}`}
                       >
-                        <Link to={item.url} className="flex items-center gap-3 w-full">
+                        <div className="flex items-center gap-3 w-full">
                           <item.icon className={`h-[18px] w-[18px] shrink-0 ${isActive ? 'text-primary' : 'text-sidebar-foreground/60'}`} />
                           <span className="truncate text-[13px]">{item.title}</span>
-                        </Link>
-                      </SidebarMenuButton>
+                        </div>
+                      </Link>
                     </SidebarMenuItem>
                   )
                 })}

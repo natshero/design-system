@@ -16,8 +16,8 @@ export default function ModalsPage() {
       <DocSection title="Modal de Confirmação (Destrutivo)" description="Exemplo interativo utilizando o Dialog do Shadcn/ui.">
         
         <Dialog>
-          <DialogTrigger asChild>
-            <Button variant="destructive">Excluir Campanha</Button>
+          <DialogTrigger render={<Button variant="destructive" />}>
+            Excluir Campanha
           </DialogTrigger>
           <DialogContent className="sm:max-w-md overflow-hidden p-0 border-border">
             <div className="absolute top-0 left-0 w-full h-1 bg-destructive"></div>
